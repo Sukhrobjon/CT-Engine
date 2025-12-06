@@ -1,0 +1,16 @@
+task_id,instruction,success,result,error,duration_seconds,total_steps,actions_used,timestamp,metadata
+test_001,Inspect the schema of the bigquery-public-data.covid19_open_data dataset,False,,Action failed: BigQuery error: 404 GET https://bigquery.googleapis.com/bigquery/v2/projects/cs224v-recursive-parsing/datasets/Inspect?prettyPrint=false: Not found: Dataset cs224v-recursive-parsing:Inspect,3.9041945934295654,0,['InspectSchema'],2025-11-28T19:14:34.007126,"{'category': 'warehousing', 'tools': ['BigQuery'], 'has_gold_output': True}"
+test_002,Generate SQL to find the total number of COVID-19 cases worldwide on 2020-04-15 from bigquery-public-data.covid19_open_data.covid19_open_data,True,"SELECT
+  SUM(cumulative_confirmed) AS worldwide_total_cases
+FROM
+  `bigquery-public-data.covid19_open_data.covid19_open_data`
+WHERE
+  date = '2020-04-15'
+  AND aggregation_level = 0;",,17.415642976760864,0,['GenerateSQL'],2025-11-28T19:14:51.422883,"{'category': 'analytics', 'tools': ['BigQuery'], 'has_gold_output': True}"
+test_003,Create a dbt model file named 'customer_metrics.sql' that calculates customer lifetime value,False,,Subtask subtask_1 failed: Action failed: BigQuery error: 404 GET https://bigquery.googleapis.com/bigquery/v2/projects/cs224v-recursive-parsing/datasets/Inspect?prettyPrint=false: Not found: Dataset cs224v-recursive-parsing:Inspect,20.355774879455566,0,['InspectSchema'],2025-11-28T19:15:11.779045,"{'category': 'warehousing', 'tools': ['dbt'], 'has_gold_output': True}"
+test_004,Execute a query to count total rows in bigquery-public-data.austin_bikeshare.bikeshare_stations,False,,"Action failed: Query execution error: 400 Syntax error: Expected keyword IMMEDIATE but got identifier ""a"" at [1:9]; reason: invalidQuery, location: query, message: Syntax error: Expected keyword IMMEDIATE but got identifier ""a"" at [1:9]
+
+Location: US
+Job ID: cf32c995-c031-41f8-84ec-091f5e03840e
+",4.311689138412476,0,['ExecuteQuery'],2025-11-28T19:15:16.091164,"{'category': 'analytics', 'tools': ['BigQuery'], 'has_gold_output': True}"
+test_005,Click the 'Run Query' button in the BigQuery interface,True,Clicked button: Click the 'Run Query' button in the BigQuery interface,,4.827852010726929,0,['ClickButton'],2025-11-28T19:15:20.919143,"{'category': 'gui', 'tools': ['Selenium'], 'has_gold_output': True}"

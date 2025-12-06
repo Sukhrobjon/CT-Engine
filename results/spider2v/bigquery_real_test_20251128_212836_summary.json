@@ -1,0 +1,25 @@
+{
+  "experiment_name": "bigquery_real_test",
+  "timestamp": "2025-11-28T21:28:36.890575",
+  "total_tasks": 10,
+  "successful": 0,
+  "failed": 10,
+  "success_rate": 0.0,
+  "avg_duration_seconds": 58.259773921966556,
+  "avg_steps": 0.0,
+  "action_counts": {
+    "InspectSchema": 1,
+    "GenerateSQL": 5,
+    "ExecuteQuery": 6,
+    "CreateFile": 1,
+    "ClickButton": 6,
+    "Finish": 1
+  },
+  "error_types": {
+    "Subtask subtask_1 failed": 3,
+    "Type mismatch for variable 'query_result'": 2,
+    "Action failed": 1,
+    "Subtask subtask_2 failed": 3,
+    "Subtask subtask_4 failed": 1
+  }
+}

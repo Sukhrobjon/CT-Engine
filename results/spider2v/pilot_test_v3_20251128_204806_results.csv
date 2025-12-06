@@ -1,0 +1,4320 @@
+task_id,instruction,success,result,error,duration_seconds,total_steps,actions_used,timestamp,metadata
+test_001,Inspect the schema of the bigquery-public-data.covid19_open_data dataset,True,"{
+  ""dataset"": ""covid19_open_data"",
+  ""project"": ""bigquery-public-data"",
+  ""tables"": [
+    {
+      ""table_name"": ""compatibility_view"",
+      ""num_rows"": 0,
+      ""columns"": [
+        {
+          ""name"": ""province_state"",
+          ""type"": ""STRING"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""country_region"",
+          ""type"": ""STRING"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""date"",
+          ""type"": ""DATE"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""latitude"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""longitude"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""sub_region1_name"",
+          ""type"": ""STRING"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""location_geom"",
+          ""type"": ""GEOGRAPHY"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""confirmed"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""deaths"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""recovered"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""active"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""fips"",
+          ""type"": ""STRING"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""admin_2"",
+          ""type"": ""STRING"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""combined_key"",
+          ""type"": ""STRING"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        }
+      ]
+    },
+    {
+      ""table_name"": ""covid19_open_data"",
+      ""num_rows"": 22756333,
+      ""columns"": [
+        {
+          ""name"": ""location_key"",
+          ""type"": ""STRING"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""date"",
+          ""type"": ""DATE"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""place_id"",
+          ""type"": ""STRING"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""wikidata_id"",
+          ""type"": ""STRING"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""datacommons_id"",
+          ""type"": ""STRING"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""country_code"",
+          ""type"": ""STRING"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""country_name"",
+          ""type"": ""STRING"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""iso_3166_1_alpha_2"",
+          ""type"": ""STRING"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""iso_3166_1_alpha_3"",
+          ""type"": ""STRING"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""aggregation_level"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_confirmed"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_deceased"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_confirmed"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_deceased"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_tested"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_persons_vaccinated"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_persons_vaccinated"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_persons_fully_vaccinated"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_persons_fully_vaccinated"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_vaccine_doses_administered"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_vaccine_doses_administered"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""population"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""population_male"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""population_female"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""population_rural"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""population_urban"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""population_density"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""human_development_index"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""population_age_00_09"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""population_age_10_19"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""population_age_20_29"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""population_age_30_39"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""population_age_40_49"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""population_age_50_59"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""population_age_60_69"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""population_age_70_79"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""population_age_80_and_older"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""gdp_usd"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""gdp_per_capita_usd"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""openstreetmap_id"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""latitude"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""longitude"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""area_sq_km"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""smoking_prevalence"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""diabetes_prevalence"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""infant_mortality_rate"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""nurses_per_1000"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""physicians_per_1000"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""health_expenditure_usd"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""out_of_pocket_health_expenditure_usd"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""school_closing"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""workplace_closing"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cancel_public_events"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""restrictions_on_gatherings"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""public_transport_closing"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""stay_at_home_requirements"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""restrictions_on_internal_movement"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""international_travel_controls"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""income_support"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""debt_relief"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""fiscal_measures"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""international_support"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""public_information_campaigns"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""testing_policy"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""contact_tracing"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""emergency_investment_in_healthcare"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""investment_in_vaccines"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""facial_coverings"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""vaccination_policy"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""stringency_index"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""average_temperature_celsius"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""minimum_temperature_celsius"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""maximum_temperature_celsius"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""rainfall_mm"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""snowfall_mm"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""dew_point"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""relative_humidity"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_tested"",
+          ""type"": ""STRING"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""population_largest_city"",
+          ""type"": ""STRING"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""population_clustered"",
+          ""type"": ""STRING"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""human_capital_index"",
+          ""type"": ""STRING"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""area_rural_sq_km"",
+          ""type"": ""STRING"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""area_urban_sq_km"",
+          ""type"": ""STRING"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""life_expectancy"",
+          ""type"": ""STRING"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""adult_male_mortality_rate"",
+          ""type"": ""STRING"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""adult_female_mortality_rate"",
+          ""type"": ""STRING"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""pollution_mortality_rate"",
+          ""type"": ""STRING"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""comorbidity_mortality_rate"",
+          ""type"": ""STRING"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""mobility_retail_and_recreation"",
+          ""type"": ""STRING"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""mobility_grocery_and_pharmacy"",
+          ""type"": ""STRING"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""mobility_parks"",
+          ""type"": ""STRING"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""mobility_transit_stations"",
+          ""type"": ""STRING"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""mobility_workplaces"",
+          ""type"": ""STRING"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""mobility_residential"",
+          ""type"": ""STRING"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""hospital_beds_per_1000"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""subregion1_code"",
+          ""type"": ""STRING"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""subregion1_name"",
+          ""type"": ""STRING"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_recovered"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_recovered"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""elevation_m"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_hospitalized_patients"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_hospitalized_patients"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_intensive_care_patients"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_intensive_care_patients"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_confirmed_age_0"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_confirmed_age_1"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_confirmed_age_2"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_confirmed_age_3"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_confirmed_age_4"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_confirmed_age_5"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_confirmed_age_6"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_confirmed_age_7"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_confirmed_age_8"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_confirmed_age_9"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_confirmed_age_0"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_confirmed_age_1"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_confirmed_age_2"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_confirmed_age_3"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_confirmed_age_4"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_confirmed_age_5"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_confirmed_age_6"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_confirmed_age_7"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_confirmed_age_8"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_confirmed_age_9"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_deceased_age_0"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_deceased_age_1"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_deceased_age_2"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_deceased_age_3"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_deceased_age_4"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_deceased_age_5"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_deceased_age_6"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_deceased_age_7"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_deceased_age_8"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_deceased_age_9"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_deceased_age_0"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_deceased_age_1"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_deceased_age_2"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_deceased_age_3"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_deceased_age_4"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_deceased_age_5"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_deceased_age_6"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_deceased_age_7"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_deceased_age_8"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_deceased_age_9"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_tested_age_0"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_tested_age_1"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_tested_age_2"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_tested_age_3"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_tested_age_4"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_tested_age_5"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_tested_age_6"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_tested_age_7"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_tested_age_8"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_tested_age_9"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_tested_age_0"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_tested_age_1"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_tested_age_2"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_tested_age_3"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_tested_age_4"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_tested_age_5"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_tested_age_6"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_tested_age_7"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_tested_age_8"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_tested_age_9"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_hospitalized_patients_age_0"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_hospitalized_patients_age_1"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_hospitalized_patients_age_2"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_hospitalized_patients_age_3"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_hospitalized_patients_age_4"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_hospitalized_patients_age_5"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_hospitalized_patients_age_6"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_hospitalized_patients_age_7"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_hospitalized_patients_age_8"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_hospitalized_patients_age_9"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_hospitalized_patients_age_0"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_hospitalized_patients_age_1"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_hospitalized_patients_age_2"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_hospitalized_patients_age_3"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_hospitalized_patients_age_4"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_hospitalized_patients_age_5"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_hospitalized_patients_age_6"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_hospitalized_patients_age_7"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_hospitalized_patients_age_8"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_hospitalized_patients_age_9"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_intensive_care_patients_age_0"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_intensive_care_patients_age_1"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_intensive_care_patients_age_2"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_intensive_care_patients_age_3"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_intensive_care_patients_age_4"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_intensive_care_patients_age_5"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_intensive_care_patients_age_6"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_intensive_care_patients_age_7"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_intensive_care_patients_age_8"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_intensive_care_patients_age_9"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_intensive_care_patients_age_0"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_intensive_care_patients_age_1"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_intensive_care_patients_age_2"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_intensive_care_patients_age_3"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_intensive_care_patients_age_4"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_intensive_care_patients_age_5"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_intensive_care_patients_age_6"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_intensive_care_patients_age_7"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_intensive_care_patients_age_8"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_intensive_care_patients_age_9"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""age_bin_0"",
+          ""type"": ""STRING"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""age_bin_1"",
+          ""type"": ""STRING"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""age_bin_2"",
+          ""type"": ""STRING"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""age_bin_3"",
+          ""type"": ""STRING"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""age_bin_4"",
+          ""type"": ""STRING"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""age_bin_5"",
+          ""type"": ""STRING"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""age_bin_6"",
+          ""type"": ""STRING"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""age_bin_7"",
+          ""type"": ""STRING"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""age_bin_8"",
+          ""type"": ""STRING"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""age_bin_9"",
+          ""type"": ""STRING"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_confirmed_male"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_confirmed_female"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_confirmed_male"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_confirmed_female"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_deceased_male"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_deceased_female"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_deceased_male"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_deceased_female"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_tested_male"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_tested_female"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_tested_male"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_tested_female"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_hospitalized_patients_male"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_hospitalized_patients_female"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_hospitalized_patients_male"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_hospitalized_patients_female"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_intensive_care_patients_male"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_intensive_care_patients_female"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_intensive_care_patients_male"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_intensive_care_patients_female"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""subregion2_code"",
+          ""type"": ""STRING"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""subregion2_name"",
+          ""type"": ""STRING"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""current_hospitalized_patients"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""current_intensive_care_patients"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""current_ventilator_patients"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_abdominal_obesity"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_abdominal_pain"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_acne"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_actinic_keratosis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_acute_bronchitis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_adrenal_crisis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_ageusia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_alcoholism"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_allergic_conjunctivitis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_allergy"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_amblyopia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_amenorrhea"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_amnesia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_anal_fissure"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_anaphylaxis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_anemia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_angina_pectoris"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_angioedema"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_angular_cheilitis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_anosmia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_anxiety"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_aphasia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_aphonia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_apnea"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_arthralgia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_arthritis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_ascites"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_asperger_syndrome"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_asphyxia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_asthma"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_astigmatism"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_ataxia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_atheroma"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_attention_deficit_hyperactivity_disorder"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_auditory_hallucination"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_autoimmune_disease"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_avoidant_personality_disorder"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_back_pain"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_bacterial_vaginosis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_balance_disorder"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_beaus_lines"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_bells_palsy"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_biliary_colic"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_binge_eating"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_bleeding"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_bleeding_on_probing"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_blepharospasm"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_bloating"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_blood_in_stool"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_blurred_vision"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_blushing"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_boil"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_bone_fracture"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_bone_tumor"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_bowel_obstruction"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_bradycardia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_braxton_hicks_contractions"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_breakthrough_bleeding"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_breast_pain"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_bronchitis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_bruise"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_bruxism"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_bunion"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_burn"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_burning_chest_pain"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_burning_mouth_syndrome"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_candidiasis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_canker_sore"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_cardiac_arrest"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_carpal_tunnel_syndrome"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_cataplexy"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_cataract"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_chancre"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_cheilitis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_chest_pain"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_chills"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_chorea"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_chronic_pain"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_cirrhosis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_cleft_lip_and_cleft_palate"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_clouding_of_consciousness"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_cluster_headache"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_colitis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_coma"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_common_cold"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_compulsive_behavior"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_compulsive_hoarding"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_confusion"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_congenital_heart_defect"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_conjunctivitis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_constipation"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_convulsion"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_cough"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_crackles"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_cramp"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_crepitus"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_croup"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_cyanosis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_dandruff"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_delayed_onset_muscle_soreness"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_dementia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_dentin_hypersensitivity"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_depersonalization"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_depression"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_dermatitis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_desquamation"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_developmental_disability"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_diabetes"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_diabetic_ketoacidosis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_diarrhea"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_dizziness"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_dry_eye_syndrome"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_dysautonomia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_dysgeusia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_dysmenorrhea"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_dyspareunia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_dysphagia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_dysphoria"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_dystonia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_dysuria"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_ear_pain"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_eczema"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_edema"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_encephalitis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_encephalopathy"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_epidermoid_cyst"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_epilepsy"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_epiphora"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_erectile_dysfunction"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_erythema"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_erythema_chronicum_migrans"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_esophagitis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_excessive_daytime_sleepiness"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_eye_pain"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_eye_strain"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_facial_nerve_paralysis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_facial_swelling"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_fasciculation"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_fatigue"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_fatty_liver_disease"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_fecal_incontinence"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_fever"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_fibrillation"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_fibrocystic_breast_changes"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_fibromyalgia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_flatulence"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_floater"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_focal_seizure"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_folate_deficiency"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_food_craving"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_food_intolerance"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_frequent_urination"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_gastroesophageal_reflux_disease"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_gastroparesis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_generalized_anxiety_disorder"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_genital_wart"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_gingival_recession"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_gingivitis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_globus_pharyngis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_goitre"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_gout"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_grandiosity"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_granuloma"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_guilt"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_hair_loss"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_halitosis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_hay_fever"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_headache"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_heart_arrhythmia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_heart_murmur"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_heartburn"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_hematochezia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_hematoma"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_hematuria"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_hemolysis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_hemoptysis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_hemorrhoids"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_hepatic_encephalopathy"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_hepatitis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_hepatotoxicity"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_hiccup"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_hip_pain"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_hives"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_hot_flash"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_hydrocephalus"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_hypercalcaemia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_hypercapnia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_hypercholesterolemia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_hyperemesis_gravidarum"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_hyperglycemia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_hyperhidrosis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_hyperkalemia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_hyperlipidemia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_hypermobility"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_hyperpigmentation"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_hypersomnia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_hypertension"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_hyperthermia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_hyperthyroidism"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_hypertriglyceridemia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_hypertrophy"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_hyperventilation"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_hypocalcaemia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_hypochondriasis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_hypoglycemia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_hypogonadism"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_hypokalemia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_hypomania"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_hyponatremia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_hypotension"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_hypothyroidism"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_hypoxemia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_hypoxia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_impetigo"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_implantation_bleeding"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_impulsivity"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_indigestion"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_infection"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_inflammation"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_inflammatory_bowel_disease"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_ingrown_hair"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_insomnia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_insulin_resistance"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_intermenstrual_bleeding"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_intracranial_pressure"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_iron_deficiency"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_irregular_menstruation"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_itch"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_jaundice"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_kidney_failure"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_kidney_stone"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_knee_pain"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_kyphosis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_lactose_intolerance"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_laryngitis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_leg_cramps"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_lesion"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_leukorrhea"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_lightheadedness"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_low_back_pain"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_low_grade_fever"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_lymphedema"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_major_depressive_disorder"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_malabsorption"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_male_infertility"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_manic_disorder"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_melasma"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_melena"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_meningitis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_menorrhagia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_middle_back_pain"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_migraine"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_milium"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_mitral_insufficiency"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_mood_disorder"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_mood_swing"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_morning_sickness"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_motion_sickness"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_mouth_ulcer"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_muscle_atrophy"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_muscle_weakness"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_myalgia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_mydriasis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_myocardial_infarction"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_myoclonus"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_nasal_congestion"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_nasal_polyp"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_nausea"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_neck_mass"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_neck_pain"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_neonatal_jaundice"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_nerve_injury"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_neuralgia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_neutropenia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_night_sweats"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_night_terror"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_nocturnal_enuresis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_nodule"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_nosebleed"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_nystagmus"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_obesity"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_onychorrhexis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_oral_candidiasis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_orthostatic_hypotension"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_osteopenia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_osteophyte"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_osteoporosis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_otitis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_otitis_externa"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_otitis_media"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_pain"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_palpitations"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_pancreatitis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_panic_attack"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_papule"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_paranoia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_paresthesia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_pelvic_inflammatory_disease"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_pericarditis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_periodontal_disease"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_periorbital_puffiness"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_peripheral_neuropathy"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_perspiration"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_petechia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_phlegm"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_photodermatitis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_photophobia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_photopsia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_pleural_effusion"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_pleurisy"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_pneumonia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_podalgia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_polycythemia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_polydipsia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_polyneuropathy"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_polyuria"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_poor_posture"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_post_nasal_drip"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_postural_orthostatic_tachycardia_syndrome"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_prediabetes"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_proteinuria"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_pruritus_ani"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_psychosis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_ptosis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_pulmonary_edema"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_pulmonary_hypertension"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_purpura"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_pus"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_pyelonephritis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_radiculopathy"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_rectal_pain"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_rectal_prolapse"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_red_eye"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_renal_colic"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_restless_legs_syndrome"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_rheum"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_rhinitis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_rhinorrhea"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_rosacea"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_round_ligament_pain"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_rumination"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_scar"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_sciatica"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_scoliosis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_seborrheic_dermatitis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_self_harm"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_sensitivity_to_sound"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_sexual_dysfunction"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_shallow_breathing"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_sharp_pain"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_shivering"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_shortness_of_breath"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_shyness"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_sinusitis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_skin_condition"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_skin_rash"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_skin_tag"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_skin_ulcer"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_sleep_apnea"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_sleep_deprivation"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_sleep_disorder"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_snoring"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_sore_throat"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_spasticity"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_splenomegaly"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_sputum"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_stomach_rumble"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_strabismus"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_stretch_marks"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_stridor"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_stroke"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_stuttering"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_subdural_hematoma"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_suicidal_ideation"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_swelling"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_swollen_feet"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_swollen_lymph_nodes"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_syncope"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_tachycardia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_tachypnea"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_telangiectasia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_tenderness"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_testicular_pain"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_throat_irritation"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_thrombocytopenia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_thyroid_nodule"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_tic"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_tinnitus"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_tonsillitis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_toothache"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_tremor"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_trichoptilosis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_tumor"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_type_2_diabetes"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_unconsciousness"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_underweight"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_upper_respiratory_tract_infection"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_urethritis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_urinary_incontinence"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_urinary_tract_infection"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_urinary_urgency"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_uterine_contraction"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_vaginal_bleeding"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_vaginal_discharge"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_vaginitis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_varicose_veins"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_vasculitis"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_ventricular_fibrillation"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_ventricular_tachycardia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_vertigo"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_viral_pneumonia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_visual_acuity"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_vomiting"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_wart"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_water_retention"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_weakness"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_weight_gain"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_wheeze"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_xeroderma"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_xerostomia"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""search_trends_yawn"",
+          ""type"": ""FLOAT"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_recovered_age_0"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_recovered_age_1"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_recovered_age_2"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_recovered_age_3"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_recovered_age_4"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_recovered_age_5"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_recovered_age_6"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_recovered_age_7"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_recovered_age_8"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_recovered_age_9"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_recovered_age_0"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_recovered_age_1"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_recovered_age_2"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_recovered_age_3"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_recovered_age_4"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_recovered_age_5"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_recovered_age_6"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_recovered_age_7"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_recovered_age_8"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_recovered_age_9"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_recovered_male"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_recovered_female"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_recovered_male"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_recovered_female"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""locality_code"",
+          ""type"": ""STRING"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""locality_name"",
+          ""type"": ""STRING"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_ventilator_patients"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_ventilator_patients"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_persons_fully_vaccinated_pfizer"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_persons_fully_vaccinated_pfizer"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_vaccine_doses_administered_pfizer"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_vaccine_doses_administered_pfizer"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_persons_fully_vaccinated_moderna"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_persons_fully_vaccinated_moderna"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_vaccine_doses_administered_moderna"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_vaccine_doses_administered_moderna"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_persons_fully_vaccinated_janssen"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_persons_fully_vaccinated_janssen"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""new_vaccine_doses_administered_janssen"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""cumulative_vaccine_doses_administered_janssen"",
+          ""type"": ""INTEGER"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        },
+        {
+          ""name"": ""location_geometry"",
+          ""type"": ""GEOGRAPHY"",
+          ""mode"": ""NULLABLE"",
+          ""description"": """"
+        }
+      ]
+    }
+  ]
+}",,4.0007710456848145,0,['InspectSchema'],2025-11-28T20:46:43.441306,"{'category': 'warehousing', 'tools': ['BigQuery'], 'has_gold_output': True}"
+test_002,Generate SQL to find the total number of COVID-19 cases worldwide on 2020-04-15 from bigquery-public-data.covid19_open_data.covid19_open_data,True,"SELECT SUM(total_confirmed) AS worldwide_confirmed_cases
+FROM `bigquery-public-data.covid19_open_data.covid19_open_data`
+WHERE date = '2020-04-15'
+  AND aggregation_level = 0",,17.20594596862793,0,['GenerateSQL'],2025-11-28T20:47:00.647312,"{'category': 'analytics', 'tools': ['BigQuery'], 'has_gold_output': True}"
+test_003,Create a dbt model file named 'customer_metrics.sql' that calculates customer lifetime value,False,,Subtask subtask_1 failed: Action failed: BigQuery error: 404 GET https://bigquery.googleapis.com/bigquery/v2/projects/cs224v-recursive-parsing/datasets/schema?prettyPrint=false: Not found: Dataset cs224v-recursive-parsing:schema,18.173946857452393,0,['InspectSchema'],2025-11-28T20:47:18.821301,"{'category': 'warehousing', 'tools': ['dbt'], 'has_gold_output': True}"
+test_004,Execute a query to count total rows in bigquery-public-data.austin_bikeshare.bikeshare_stations,False,,"Subtask subtask_2 failed: Action failed: Query execution error: 400 Aggregate function COUNT(*) not allowed in SELECT without FROM clause at [1:8]; reason: invalidQuery, location: query, message: Aggregate function COUNT(*) not allowed in SELECT without FROM clause at [1:8]
+
+Location: US
+Job ID: 0b5745ea-6954-49ae-9652-26288defce90
+",45.54583120346069,0,"['GenerateSQL', 'ExecuteQuery']",2025-11-28T20:48:04.367307,"{'category': 'analytics', 'tools': ['BigQuery'], 'has_gold_output': True}"
+test_005,Click the 'Run Query' button in the BigQuery interface,True,Clicked button: Click the 'Run Query' button in the BigQuery interface,,2.306804895401001,0,['ClickButton'],2025-11-28T20:48:06.674348,"{'category': 'gui', 'tools': ['Selenium'], 'has_gold_output': True}"

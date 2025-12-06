@@ -22,7 +22,7 @@ from semantic_parser import (
     ReACTEngine,
     AzureOpenAIClient
 )
-from semantic_parser.modules.verdant import create_action_registry, DatabaseManager, OpenAIUtils
+from semantic_parser.modules.verdant import create_action_registry, DatabaseManager
 from semantic_parser.src.react import ReasoningTrace
 
 
@@ -78,12 +78,19 @@ class VerdantExperiment:
         self.results_dir = Path(results_dir)
         self.results_dir.mkdir(parents=True, exist_ok=True)
         
+        # Load environment variables FIRST
+        load_dotenv()
+
         # Initialize engines (one per concurrent task to avoid conflicts)
         self.engines: List[ReACTEngine] = []
-        
+
         # Initialize OpenAI client for actions
-        self.client = OpenAIUtils(api_key=os.getenv("AZURE_OPENAI_API_KEY"))
-        
+        self.client = AzureOpenAIClient(
+            api_key=os.getenv("AZURE_OPENAI_API_KEY"),
+            azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
+            deployment_name=os.getenv("AZURE_OPENAI_DEPLOYMENT", "gpt-4.1")
+        )
+
         # Initialize database manager
         self.db_manager = DatabaseManager(
             visible_tables=[
@@ -94,9 +101,6 @@ class VerdantExperiment:
                 "HandTransformedPortfolioInvestmentswithCFRaw"
             ]
         )
-        
-        # Load environment variables
-        load_dotenv()
         
     def _setup_engine(self) -> ReACTEngine:
         """
@@ -155,8 +159,13 @@ Query:
 If the entity mentioned matches the database label, return it unchanged. Otherwise, replace ambiguous references with specific entity label (exact) from the known list.
 """
         system_prompt = "You are an expert at clarifying ambiguous queries based on known entities."
-        response = self.client._query_azure_openai(disambiguate_prompt, system_prompt)
-        return response.strip()
+        from semantic_parser.llm_client import Message
+        messages = [
+            Message(role="system", content=system_prompt),
+            Message(role="user", content=disambiguate_prompt)
+        ]
+        response = self.client.chat_completion(messages)
+        return response.content.strip()
     
     
     def load_queries_from_csv(self, csv_path: str) -> pd.DataFrame:

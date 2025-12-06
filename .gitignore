@@ -8,10 +8,17 @@
 .ipynb_checkpoints
 */.ipynb_checkpoints/*
 *.ipynb
-react_verdant.py
-action_tests.ipynb
-decomposition_test.ipynb
+# react_verdant.py
+# action_tests.ipynb
+# decomposition_test.ipynb
 
+# Credentials and secrets
+*.pem
+*.key
+*-credential*.json
+*credential*.json
+service-account*.json
+spider-*.json
 
 # IPython
 profile_default/

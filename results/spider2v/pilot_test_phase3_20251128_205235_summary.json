@@ -1,0 +1,21 @@
+{
+  "experiment_name": "pilot_test_phase3",
+  "timestamp": "2025-11-28T20:52:35.408746",
+  "total_tasks": 5,
+  "successful": 3,
+  "failed": 2,
+  "success_rate": 60.0,
+  "avg_duration_seconds": 10.08055591583252,
+  "avg_steps": 0.0,
+  "action_counts": {
+    "InspectSchema": 1,
+    "GenerateSQL": 2,
+    "CreateFile": 1,
+    "ExecuteQuery": 1,
+    "ClickButton": 1
+  },
+  "error_types": {
+    "Unknown": 1,
+    "Subtask subtask_2 failed": 1
+  }
+}

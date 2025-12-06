@@ -212,7 +212,42 @@ class DecomposeAgent:
         try:
             # Step 1: Judge task complexity
             complexity = await self._judge_complexity(task, trace)
-            
+
+            # Override: Force decomposition if multiple operations detected
+            should_override = False
+            override_reason = ""
+
+            # Check 1: LLM detected multiple key operations
+            if len(complexity.key_operations) > 1:
+                should_override = True
+                override_reason = f"LLM detected {len(complexity.key_operations)} operations: {complexity.key_operations}"
+
+            # Check 2: Heuristic - task mentions "execute" with "query" or "SQL"
+            # These tasks typically need GenerateSQL + ExecuteQuery
+            elif complexity.is_simple:
+                task_lower = task.lower()
+                execute_patterns = ["execute a query", "execute query", "run a query", "run query"]
+                sql_indicators = ["count", "select", "find", "get", "retrieve"]
+
+                has_execute = any(pattern in task_lower for pattern in execute_patterns)
+                has_sql_intent = any(indicator in task_lower for indicator in sql_indicators)
+
+                # If recommended action is ExecuteQuery but task seems to need SQL generation
+                if complexity.recommended_action == "ExecuteQuery" and has_execute and has_sql_intent:
+                    # Check if there's NO SQL in the variable stack
+                    sql_vars = [v for v in trace.variable_stack.get_all_variables()
+                               if 'sql' in v.name.lower() and v.var_type == "string"]
+                    if not sql_vars:
+                        should_override = True
+                        override_reason = "Task needs SQL generation before execution (no SQL in context)"
+
+            if complexity.is_simple and should_override:
+                if self.verbose:
+                    indent = "  " * depth
+                    print(f"{indent}⚠ Override: {override_reason}")
+                    print(f"{indent}  Forcing decomposition instead of simple execution")
+                complexity.is_simple = False
+
             if complexity.is_simple:
                 # Simple task: execute directly
                 trace.is_simple = True
@@ -311,7 +346,64 @@ Analyze this task and respond with a JSON object:
     "is_simple": true/false,
     "reasoning": "Brief explanation of your judgment",
     "recommended_action": "action_name (if simple)" or null,
-    "recommended_parameters": {{}} (if simple) or null
+    "recommended_parameters": {{}} (if simple) or null,
+    "key_operations": ["list", "of", "key", "operations", "needed"]
+}}
+
+**key_operations** should list all distinct operations required. Examples:
+- "Execute a query to count rows" -> ["generate_sql", "execute_query"] (2 operations -> COMPLEX)
+- "Inspect the schema" -> ["inspect_schema"] (1 operation -> SIMPLE)
+- "Create a dbt model file that calculates metrics" -> ["create_file"] (1 operation -> SIMPLE)
+- "Generate SQL and execute it to get results" -> ["generate_sql", "execute_query"] (2 operations -> COMPLEX)
+
+**IMPORTANT RULES**:
+- "Create a file" or "Create a model file" tasks are always SIMPLE - just use CreateFile action
+- File creation does NOT require inspecting schemas or generating SQL beforehand
+- The file content can be described in the task itself
+
+**PARAMETER EXTRACTION** (CRITICAL):
+When is_simple=true, you MUST extract ALL required parameters from the task description.
+- Look for explicit values: filenames, table names, dataset names, queries, button labels, etc.
+- Extract EXACT values as they appear in the task (don't paraphrase)
+- If a parameter cannot be determined, use null
+
+**Parameter Extraction Examples**:
+
+Example 1 - File Creation:
+Task: "Create a dbt model file named 'customer_metrics.sql' that calculates customer lifetime value"
+Response: {{
+  "is_simple": true,
+  "reasoning": "Single CreateFile action needed",
+  "recommended_action": "CreateFile",
+  "recommended_parameters": {{
+    "filename": "customer_metrics.sql",
+    "content": "-- dbt model for customer lifetime value calculations"
+  }},
+  "key_operations": ["create_file"]
+}}
+
+Example 2 - Schema Inspection:
+Task: "Inspect the schema of the bigquery-public-data.covid19_open_data dataset"
+Response: {{
+  "is_simple": true,
+  "reasoning": "Single InspectSchema action with dataset name",
+  "recommended_action": "InspectSchema",
+  "recommended_parameters": {{
+    "dataset_name": "bigquery-public-data.covid19_open_data"
+  }},
+  "key_operations": ["inspect_schema"]
+}}
+
+Example 3 - Button Click:
+Task: "Click the 'Run Query' button in the BigQuery interface"
+Response: {{
+  "is_simple": true,
+  "reasoning": "Single ClickButton action",
+  "recommended_action": "ClickButton",
+  "recommended_parameters": {{
+    "button_description": "Run Query"
+  }},
+  "key_operations": ["click_button"]
 }}
 
 Return ONLY the JSON object, no additional text.
@@ -326,12 +418,13 @@ Return ONLY the JSON object, no additional text.
             json_end = response.content.rfind('}') + 1
             json_str = response.content[json_start:json_end]
             parsed = json.loads(json_str)
-            
+
             return TaskComplexity(
                 is_simple=parsed["is_simple"],
                 reasoning=parsed["reasoning"],
                 recommended_action=parsed.get("recommended_action"),
-                recommended_parameters=parsed.get("recommended_parameters", {})
+                recommended_parameters=parsed.get("recommended_parameters", {}),
+                key_operations=parsed.get("key_operations", [])
             )
         except Exception as e:
             logger.error(f"Failed to parse complexity judgment: {e}")
@@ -340,9 +433,179 @@ Return ONLY the JSON object, no additional text.
                 is_simple=False,
                 reasoning=f"Failed to parse: {e}",
                 recommended_action=None,
-                recommended_parameters={}
+                recommended_parameters={},
+                key_operations=[]
             )
     
+    def _find_matching_variable(
+        self,
+        param_name: str,
+        variable_stack: VariableStack,
+        param_schema: Dict[str, Any]
+    ) -> Optional[Any]:
+        """
+        Find a variable that matches the parameter name using smart matching.
+
+        Handles cases like:
+        - sql_query → sql
+        - dataset_name → dataset
+        - generated_sql → sql
+
+        Args:
+            param_name: The parameter name we're trying to match
+            variable_stack: The variable stack to search
+            param_schema: The parameter's schema (for type checking)
+
+        Returns:
+            The matched variable or None
+        """
+        all_vars_dict = variable_stack.get_all_variables()
+        if not all_vars_dict:
+            return None
+
+        # Get expected type if available
+        expected_type = param_schema.get("type")
+
+        # Build list of candidates
+        candidates = []
+
+        for var_name, var in all_vars_dict.items():
+            # Skip if types don't match (when type info is available)
+            if expected_type and expected_type == "string" and var.var_type != "string":
+                continue
+            if expected_type and expected_type == "integer" and var.var_type not in ["int", "integer"]:
+                continue
+
+            # Matching strategies:
+            # 1. Variable name contains parameter name (sql_query contains "sql")
+            if param_name in var.name:
+                candidates.append((var, 2))  # Priority 2: contains match
+            # 2. Parameter name contains variable name (sql in "sql_query")
+            elif var.name in param_name:
+                candidates.append((var, 3))  # Priority 3: reverse contains
+            # 3. Both names share significant overlap (dataset_name vs dataset)
+            elif len(set(param_name) & set(var.name)) >= min(len(param_name), len(var.name)) // 2:
+                candidates.append((var, 4))  # Priority 4: character overlap
+
+        # If exactly one candidate, use it
+        if len(candidates) == 1:
+            return candidates[0][0]
+
+        # If multiple candidates, prefer higher priority (lower number)
+        if candidates:
+            candidates.sort(key=lambda x: x[1])
+            return candidates[0][0]
+
+        # Special case: If action needs 'sql' and there's only ONE string variable in scope
+        if param_name == "sql" and expected_type == "string":
+            string_vars = [v for v in all_vars_dict.values() if v.var_type == "string"]
+            if len(string_vars) == 1:
+                return string_vars[0]
+
+        # Special case: If action needs 'dataset_name' and there's only ONE string variable
+        if param_name == "dataset_name" and expected_type == "string":
+            string_vars = [v for v in all_vars_dict.values() if v.var_type == "string"]
+            if len(string_vars) == 1:
+                return string_vars[0]
+
+        return None
+
+    async def _extract_parameters_from_task(
+        self,
+        task: str,
+        action_name: str,
+        required_params: List[str],
+        input_schema: Dict
+    ) -> Dict[str, Any]:
+        """
+        Extract required parameters from task description when complexity
+        judgment didn't provide them.
+
+        This is a fallback mechanism that uses LLM to extract parameter
+        values from the task text when they weren't provided by the
+        complexity judgment or available in the variable stack.
+
+        Args:
+            task: The task description
+            action_name: Name of the action needing parameters
+            required_params: List of required parameter names
+            input_schema: Full input schema for the action
+
+        Returns:
+            Dictionary of extracted parameter values
+        """
+        # Build parameter descriptions for the prompt
+        param_descriptions = []
+        for param_name in required_params:
+            param_schema = input_schema["properties"].get(param_name, {})
+            param_type = param_schema.get("type", "string")
+            param_desc = param_schema.get("description", "")
+            param_descriptions.append(
+                f"- {param_name} ({param_type}): {param_desc}"
+            )
+
+        params_str = "\n".join(param_descriptions)
+
+        prompt = f"""Extract the required parameters for the {action_name} action from this task.
+
+Task: {task}
+
+Required Parameters:
+{params_str}
+
+EXTRACTION RULES:
+- Extract EXACT values as they appear in the task (don't paraphrase)
+- Look for explicit mentions:
+  * Filenames in quotes: "file named 'customer_metrics.sql'" → filename: "customer_metrics.sql"
+  * Table names: "bigquery-public-data.austin_bikeshare.bikeshare_stations" → use exactly as shown
+  * Button labels: "Click the 'Run Query' button" → button_description: "Run Query"
+  * Dataset names with project qualifiers: "project.dataset" format
+- If a parameter cannot be determined from the task, use null
+- Return values WITHOUT extra quotes (the value itself, not "value")
+
+Return ONLY a JSON object with the parameter values:
+{{
+    "param1": "value1",
+    "param2": "value2"
+}}
+
+Examples:
+Task: "Create a file named 'metrics.sql'"
+Output: {{"filename": "metrics.sql"}}
+
+Task: "Inspect bigquery-public-data.covid19_open_data"
+Output: {{"dataset_name": "bigquery-public-data.covid19_open_data"}}
+"""
+
+        from semantic_parser.llm_client import Message
+        messages = [Message(role="user", content=prompt)]
+
+        try:
+            response = self.llm_client.chat_completion(messages)
+
+            # Extract JSON from response
+            json_start = response.content.find('{')
+            json_end = response.content.rfind('}') + 1
+
+            if json_start == -1 or json_end == 0:
+                logger.warning(f"No JSON found in parameter extraction response: {response.content}")
+                return {}
+
+            json_str = response.content[json_start:json_end]
+            params = json.loads(json_str)
+
+            # Clean up the parameters (remove any accidental quotes)
+            for key, value in params.items():
+                if isinstance(value, str):
+                    # Remove surrounding quotes if LLM added them
+                    params[key] = value.strip('"\'')
+
+            return params
+
+        except Exception as e:
+            logger.warning(f"Failed to extract parameters: {e}")
+            return {}
+
     async def _execute_simple_task(
         self,
         task: str,
@@ -352,16 +615,16 @@ Return ONLY the JSON object, no additional text.
     ) -> Any:
         """
         Execute a simple task with the recommended action.
-        
+
         Uses the variable stack from the trace to provide inputs to the action.
         Only passes parameters that the action explicitly accepts.
-        
+
         Args:
             task: The task to execute
             action_name: Name of the action to use
             trace: Current trace with variable stack
             subtask: Optional subtask with spec for input/output naming
-            
+
         Returns:
             Result from the action
         """
@@ -400,10 +663,48 @@ Return ONLY the JSON object, no additional text.
         # Also check for any variables that match action parameters
         for param_name in accepted_params:
             if param_name not in action_kwargs:
+                # First try exact match
                 var = trace.variable_stack.get(param_name)
                 if var is not None:
                     action_kwargs[param_name] = var.value
-        
+                else:
+                    # Smart matching: look for similar variable names
+                    # This handles cases like sql_query → sql, dataset_name → dataset
+                    matched_var = self._find_matching_variable(
+                        param_name,
+                        trace.variable_stack,
+                        input_schema.get("properties", {}).get(param_name, {})
+                    )
+                    if matched_var is not None:
+                        action_kwargs[param_name] = matched_var.value
+                        if self.verbose:
+                            indent = "  " * trace.depth
+                            print(f"{indent}  Auto-matched '{matched_var.name}' → '{param_name}'")
+
+        # Fallback: Extract required parameters from task if missing
+        required_params = input_schema.get("required", [])
+        missing_required = [p for p in required_params if p not in action_kwargs and p != "query"]
+
+        if missing_required:
+            if self.verbose:
+                indent = "  " * trace.depth
+                print(f"{indent}  ⚠ Missing required params: {missing_required}, attempting extraction...")
+
+            extracted_params = await self._extract_parameters_from_task(
+                task=task,
+                action_name=action_name,
+                required_params=missing_required,
+                input_schema=input_schema
+            )
+
+            # Add extracted parameters
+            for param_name, param_value in extracted_params.items():
+                if param_value is not None and param_name not in action_kwargs:
+                    action_kwargs[param_name] = param_value
+                    if self.verbose:
+                        indent = "  " * trace.depth
+                        print(f"{indent}  ✓ Extracted '{param_name}': {param_value}")
+
         if self.verbose:
             indent = "  " * trace.depth
             print(f"{indent}  Executing {action_name} with params: {list(action_kwargs.keys())}")
@@ -464,6 +765,11 @@ Return ONLY the JSON object, no additional text.
    - Each subtask should be as simple as possible (ideally solvable with one action)
    - Each subtask produces a typed output
    - **IMPORTANT**: Each subtask must have a clear input/output specification with variable names AND types
+   - **CRITICAL - CONTEXT PRESERVATION**: Subtask descriptions MUST include ALL specific details from the parent task
+     * If parent mentions a table name like "bigquery-public-data.austin_bikeshare.bikeshare_stations", include it EXACTLY
+     * If parent mentions a file name, dataset name, or specific value, include it in the subtask description
+     * NEVER use vague references like "the specified table", "the dataset", or "the mentioned file"
+     * Example: Instead of "Generate SQL for the specified table", write "Generate SQL for bigquery-public-data.austin_bikeshare.bikeshare_stations"
 
 2. **Subtask Specs**: For each subtask, define:
    - **inputs**: List of inputs with name, type, description, and source

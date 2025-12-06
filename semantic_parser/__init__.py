@@ -42,8 +42,11 @@ from semantic_parser.src.decompose import (
     create_simple_composition,
 )
 
-# Domain modules
-from semantic_parser.modules.verdant import *
+# Domain modules (optional - import only if dependencies are available)
+try:
+    from semantic_parser.modules.verdant import *
+except ImportError:
+    pass  # Verdant module dependencies not available
 
 __version__ = "0.1.0"
 

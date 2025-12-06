@@ -1,0 +1,17 @@
+{
+  "experiment_name": "test_fixes",
+  "timestamp": "2025-11-28T22:11:57.026617",
+  "total_tasks": 1,
+  "successful": 0,
+  "failed": 1,
+  "success_rate": 0.0,
+  "avg_duration_seconds": 34.64011192321777,
+  "avg_steps": 0.0,
+  "action_counts": {
+    "GenerateSQL": 1,
+    "InspectSchema": 1
+  },
+  "error_types": {
+    "Subtask subtask_1 failed": 1
+  }
+}

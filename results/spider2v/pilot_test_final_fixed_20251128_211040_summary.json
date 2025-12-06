@@ -1,0 +1,20 @@
+{
+  "experiment_name": "pilot_test_final_fixed",
+  "timestamp": "2025-11-28T21:10:40.944865",
+  "total_tasks": 5,
+  "successful": 4,
+  "failed": 1,
+  "success_rate": 80.0,
+  "avg_duration_seconds": 12.064079475402831,
+  "avg_steps": 0.0,
+  "action_counts": {
+    "InspectSchema": 1,
+    "GenerateSQL": 2,
+    "CreateFile": 1,
+    "ExecuteQuery": 1,
+    "ClickButton": 1
+  },
+  "error_types": {
+    "Type mismatch for variable 'query_result'": 1
+  }
+}

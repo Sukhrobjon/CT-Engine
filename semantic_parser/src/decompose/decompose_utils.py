@@ -238,6 +238,7 @@ class TaskComplexity:
     reasoning: str
     recommended_action: Optional[str] = None
     recommended_parameters: Dict[str, Any] = field(default_factory=dict)
+    key_operations: List[str] = field(default_factory=list)
 
 
 @dataclass

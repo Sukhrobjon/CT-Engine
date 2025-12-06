@@ -3,10 +3,16 @@ Database utility module for managing queries and schema information.
 Provides a clean interface for database operations using SUQL PostgreSQL connection.
 """
 
+import os
 from typing import List, Dict, Any, Optional, Tuple
 from dataclasses import dataclass
 from suql.postgresql_connection import execute_sql
 import pandas as pd
+
+# Database configuration from environment variables
+DB_USER = os.getenv("VERDANT_DB_USER", "creator_role")
+DB_PASSWORD = os.getenv("VERDANT_DB_PASSWORD", "creator_role")
+DB_NAME = os.getenv("VERDANT_DB_NAME", "verdant_db_new")
 
 
 @dataclass
@@ -61,9 +67,9 @@ class DatabaseManager:
             QueryResult object with rows, columns, and execution time
         """
         rows, columns, exec_time = execute_sql(
-            user="creator_role",
-            password="creator_role",
-            database='verdant_db_new',
+            user=DB_USER,
+            password=DB_PASSWORD,
+            database=DB_NAME,
             sql_query=sql_query,
             commit_in_lieu_fetch=commit_in_lieu_fetch,
         )
@@ -80,9 +86,9 @@ class DatabaseManager:
             Tuple of (rows, columns, execution_time)
         """
         return execute_sql(
-            user="creator_role",
-            password="creator_role",
-            database='verdant_db_new',
+            user=DB_USER,
+            password=DB_PASSWORD,
+            database=DB_NAME,
             sql_query=sql_query,
             commit_in_lieu_fetch=commit_in_lieu_fetch,
         )

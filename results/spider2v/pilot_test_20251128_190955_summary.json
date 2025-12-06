@@ -1,0 +1,19 @@
+{
+  "experiment_name": "pilot_test",
+  "timestamp": "2025-11-28T19:09:55.483022",
+  "total_tasks": 5,
+  "successful": 0,
+  "failed": 5,
+  "success_rate": 0.0,
+  "avg_duration_seconds": 12.59561538696289,
+  "avg_steps": 0.0,
+  "action_counts": {
+    "InspectSchema": 3,
+    "ExecuteQuery": 1,
+    "ClickButton": 1
+  },
+  "error_types": {
+    "Unknown": 3,
+    "Subtask subtask_1 failed": 2
+  }
+}
